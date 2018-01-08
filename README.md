@@ -1,2 +1,2 @@
 # sso
-sso module
+sso module easily usable in CO
