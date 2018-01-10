@@ -12,21 +12,11 @@ HtmlHelper::registerCssAndScriptsFiles($cssAnsScriptFilesTheme, Yii::app()->requ
 //gettting asstes from parent module repo
 $cssAnsScriptFilesModule = array(
 	'/js/dataHelpers.js',
+	'/css/md.css',
 );
 HtmlHelper::registerCssAndScriptsFiles($cssAnsScriptFilesModule, Yii::app()->getModule( Yii::app()->params["module"]["parent"] )->getAssetsUrl() );
 ?>
 
-<style type="text/css">
-	h1, h2, h3 {
-		background-color: #eee; 
-		padding:10px; 
-		border:3px solid #ccc; 
-		margin: 10px;
-	}
-	#doc {
-		margin: 30px;
-	}
-</style>
 
 <h1 style="">
 	<img height=50 src="<?php echo Yii::app()->getModule( Yii::app()->params["module"]["parent"] )->getAssetsUrl()?>/images/CO.png">
