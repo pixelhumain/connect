@@ -7,7 +7,7 @@
  *
 */
 
-class SsoModule extends CWebModule {
+class ConnectModule extends CWebModule {
 
 	private $_assetsUrl;
 
@@ -15,7 +15,7 @@ class SsoModule extends CWebModule {
 	private $_versionDate = "07/01/2018";
 	private $_keywords = "sso,opensource,single sign on,login,identity provider,idp,oauth,authentication,CO,communecter";
 	private $_description = "Open auth implemented for the COSystem";
-	private $_pageTitle = "Single sign on";
+	private $_pageTitle = "Connect :: SSO :: Single Sign On";
 
 	public function getVersion(){return $this->_version;}
 	public function getVersionDate(){return $this->_versionDate;}
@@ -29,7 +29,10 @@ class SsoModule extends CWebModule {
 	            Yii::getPathOfAlias($this->id.'.assets') );
 		return $this->_assetsUrl;
 	}
-
+	public function getParentAssetsUrl()
+	{
+		return ( @Yii::app()->params["module"]["parent"] ) ?  Yii::app()->getModule( Yii::app()->params["module"]["parent"] )->getAssetsUrl()  : $this->module->assetsUrl;
+	}
 	public function beforeControllerAction($controller, $action)
 	{
 		if (parent::beforeControllerAction($controller, $action))
@@ -65,6 +68,7 @@ class SsoModule extends CWebModule {
 			Yii::app()->language = (isset(Yii::app()->session["lang"])) ? Yii::app()->session["lang"] : 'fr';
 
 		Yii::app()->params["module"] = array(
+			"name" => "connect",
 			"parent" => "co2",
 			"overwriteList" => array(
 				"views" => array(),

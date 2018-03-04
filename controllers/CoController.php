@@ -18,7 +18,23 @@ class CoController extends CommunecterController {
   	public function actions()
 	{
 	    return array(
-	        'test'  => 'sso.controllers.TestAction',
+	        'fairkom'   => 'connect.controllers.actions.FairkomAction',
+	        'oauth'  	=> 'connect.controllers.actions.OauthAction',
+	        'login'  	=> 'connect.controllers.actions.LoginAction',
+	        'res'  		=> 'connect.controllers.actions.ResAction',
+	        'badge'  	=> 'connect.controllers.actions.BadgeAction',
+	        't'  		=> 'connect.controllers.actions.TAction',
 	    );
 	}
+
+	public function actionIndex() 
+	{
+    	if(Yii::app()->request->isAjaxRequest)
+	        echo $this->renderPartial("index");
+	    else
+	    {
+	        $this->layout = "//layouts/empty";
+	        $this->render("index");
+	    }
+ 	}
 }

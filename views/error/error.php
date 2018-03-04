@@ -30,26 +30,41 @@ font-family: "Homestead";
     <br/>
     <!-- Main hero unit for a primary marketing message or call to action -->
     <div style="text-align: center;">        
-    	<img id="logoERror" width=300 src="<?php echo $this->module->assetsUrl."/images/main-logo-home.png"?>" alt="Logo Pixel Humain"/>
+    	<img height=100 src="<?php echo Yii::app()->getModule( Yii::app()->params["module"]["parent"] )->getAssetsUrl()?>/images/CO.png">
+    	<img id="logoERror" src="<?php echo $this->module->assetsUrl."/images/logo.png"?>" alt="Logo Pixel Humain"/>
     	<div id="error">
 
     		<div style="margin:30px 0 0 50px;text-align: center;">
 				
 				<?php if( $error["code"] ){?>
-					<span style="font-size:2em; color:red; font-weight: bold;">
+					<span style="font-size:1.2em; color:red; font-weight: bold;">
 			            ERREUR <?php echo $error["code"]?>
 			            <br/><?php 
 							if( isset($error["message"]) )
 								echo $error["message"];
 							else
 								echo Yii::t("common","Oops! You are stuck at",null,Yii::app()->controller->module->id).$error["code"];
+
 							?>
 					</span>
+					<?php 
+					if( isset($error["trace"]) ){
+							echo "<br/>".$error["file"];
+							echo " <b>line ".$error["line"]."</b>";
+							$t = explode("#", $error["trace"]);
+							foreach ($t as $key => $value) {
+								echo "<br/>".$value;
+							}
+								
+						}
+							?>
 					<span style="font-size:2em">
 						<br/><br/>ERROR, PAGE OR DEMOCRACY NOT FOUND
 			            <br/>QUI CHERCHE FINIT PAR TROUVER
 		            </span>
-		        <?php }?>
+		        <?php }
+		        
+		        //var_dump($error)?>
 				
 				<div>
 					<br/><br/><br/>

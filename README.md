@@ -3,20 +3,40 @@ sso module easily usable in CO
 
 
 ## FEATURES 
+- [CO](/connect/co/co) : connecting with CO login service 
+- [Fairkom](/connect/co/fairkom) : connecting with Fairkom's Open ID Connect protocol 
+- [Github](/connect/co/oauth)
+- Mastodon
+- Diaspora
+
+## Process
+
+### Github 
+- connect
+- github auth > return to CO 
+- record user into CO DB, set session userId, and fill user data 
+    - name 
+    - description
+    - image
+    - url
+    - organization 
+    - orgs https://api.github.com/users/xxxx/orgs
+    - location
+    - email
+
+### Fairkom
+
 
 ### Homepage
-/sso shows the Readme.md content information
-
-### connecting with CO login service 
-
-### connecting with openID connect
+/connect shows the Readme.md content information
 
 ## TODO
-[ ] open.json reader
-[ ] [[https://github.com/jumbojett/OpenID-Connect-PHP]]
 
 ## Ideas, proposals; wishList
-- thinkpad of ideas
+- use CO.graph to read github tree of users
+- view a github organization in CO using interop
 
 ## BUGS, ACTIONS
+
+
 
