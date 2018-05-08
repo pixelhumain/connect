@@ -1,3 +1,20 @@
+<?php 
+$cssJS = array(
+	'/plugins/jquery-validation/dist/jquery.validate.min.js',  
+	'/plugins/ladda-bootstrap/dist/spin.min.js' , 
+    '/plugins/ladda-bootstrap/dist/ladda.min.js' , 
+    '/plugins/ladda-bootstrap/dist/ladda.min.css',
+    '/plugins/ladda-bootstrap/dist/ladda-themeless.min.css',
+);
+
+HtmlHelper::registerCssAndScriptsFiles($cssJS, Yii::app()->request->baseUrl);
+
+$cssJS = array(
+'/js/dataHelpers.js',
+);
+HtmlHelper::registerCssAndScriptsFiles($cssJS, Yii::app()->getModule( Yii::app()->params["module"]["parent"] )->getAssetsUrl() );
+ ?>
+
 <div class='container '>
 
 	<div class="row text-center">
