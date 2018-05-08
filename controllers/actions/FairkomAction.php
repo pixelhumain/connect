@@ -2,9 +2,6 @@
 //Open Id connection with FairKom
 class FairkomAction extends CAction
 {
-
-
-	
 	public function run()
     {
     	//Yii::import('connect.vendor.PHP-OAuth2.src.OAuth2.Client.php');
@@ -13,7 +10,7 @@ class FairkomAction extends CAction
 		// https://id.fairkom.net/auth/realms/fairlogin/.well-known/openid-configuration
 		$oidc = new OpenIDConnectClient('https://id.fairkom.net/auth/realms/fairlogin',
 		                                'communecter',
-		                                '9eb4f0c5-82f6-4225-8042-8ca6d355a35b');
+		                                '');
 
 		$oidc->providerConfigParam(array(
 			"issuer" => "https://id.fairkom.net/auth/realms/fairlogin",
@@ -83,8 +80,10 @@ class FairkomAction extends CAction
 		$oidc->addScope("openid email profile address");
 		$oidc->authenticate();
 
-		/*$email = $oidc->requestUserInfo('email');
-		$given_name = $oidc->requestUserInfo('given_name');*/
+		$email = $oidc->requestUserInfo('email');
+		//$given_name = $oidc->requestUserInfo('given_name');*/
+
+		echo "<a href='https://id.fairkom.net/auth/realms/fairlogin/protocol/openid-connect/logout'>Logout</a>";
 
 	}
 

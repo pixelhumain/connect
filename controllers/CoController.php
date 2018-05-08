@@ -20,7 +20,7 @@ class CoController extends CommunecterController {
 	    return array(
 	        'fairkom'   => 'connect.controllers.actions.FairkomAction',
 	        'oauth'  	=> 'connect.controllers.actions.OauthAction',
-	        'login'  	=> 'connect.controllers.actions.LoginAction',
+	        'register'  	=> 'connect.controllers.actions.RegisterAction',
 	        'res'  		=> 'connect.controllers.actions.ResAction',
 	        'badge'  	=> 'connect.controllers.actions.BadgeAction',
 	        't'  		=> 'connect.controllers.actions.TAction',
